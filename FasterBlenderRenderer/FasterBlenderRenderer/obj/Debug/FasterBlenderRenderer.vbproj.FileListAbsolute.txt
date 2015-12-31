@@ -1,0 +1,11 @@
+c:\users\backupkonto\documents\visual studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\FasterBlenderRenderer.vbprojResolveAssemblyReference.cache
+c:\users\backupkonto\documents\visual studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\FasterBlenderRenderer.Form1.resources
+c:\users\backupkonto\documents\visual studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\FasterBlenderRenderer.Resources.resources
+c:\users\backupkonto\documents\visual studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\FasterBlenderRenderer.vbproj.GenerateResource.Cache
+C:\Users\Backupkonto\Documents\Visual Studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\bin\Debug\LK-Renderer.exe.config
+C:\Users\Backupkonto\Documents\Visual Studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\bin\Debug\LK-Renderer.exe
+C:\Users\Backupkonto\Documents\Visual Studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\bin\Debug\LK-Renderer.pdb
+C:\Users\Backupkonto\Documents\Visual Studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\bin\Debug\LK-Renderer.xml
+C:\Users\Backupkonto\Documents\Visual Studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.exe
+C:\Users\Backupkonto\Documents\Visual Studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.xml
+C:\Users\Backupkonto\Documents\Visual Studio 2015\Projects\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.pdb
