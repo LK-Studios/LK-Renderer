@@ -686,6 +686,9 @@
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="selectedVersionChanged:" target="XfG-lQ-9wD" id="iaj-mv-5a8"/>
+                                </connections>
                             </popUpButton>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-Lx-LaD">
                                 <rect key="frame" x="14" y="197" width="157" height="32"/>
