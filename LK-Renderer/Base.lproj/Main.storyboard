@@ -697,10 +697,14 @@
                                     <action selector="downloadButtonClicked:" target="XfG-lQ-9wD" id="gs1-6X-Oyu"/>
                                 </connections>
                             </button>
+                            <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="N03-bW-iSe">
+                                <rect key="frame" x="20" y="185" width="145" height="20"/>
+                            </progressIndicator>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="downloadButton" destination="hSW-Lx-LaD" id="gDo-xE-mJ0"/>
+                        <outlet property="progressBar" destination="N03-bW-iSe" id="75M-Lk-fsD"/>
                         <outlet property="versionSelector" destination="N7A-6F-bvQ" id="Oz7-rN-6Hz"/>
                     </connections>
                 </viewController>

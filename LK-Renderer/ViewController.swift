@@ -24,16 +24,30 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSURLSessionDownloadDelegate {
 
     @IBOutlet weak var versionSelector: NSPopUpButton!
     var blenderVersions: [String]!
     
     @IBOutlet weak var downloadButton: NSButton!
     
+    @IBOutlet weak var progressBar: NSProgressIndicator!
+    
+    var task: NSURLSessionTask!
+    lazy var session : NSURLSession = {
+        let config = NSURLSessionConfiguration.ephemeralSessionConfiguration();
+        config.allowsCellularAccess = false;
+        return NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue());
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        progressBar.minValue = 0.0;
+        progressBar.maxValue = 1.0;
+        progressBar.doubleValue = 0.0;
+        
+        self.task = nil;
         // Do any additional setup after loading the view.
     }
 
@@ -53,21 +67,58 @@ class ViewController: NSViewController {
     
     
     @IBAction func downloadButtonClicked(sender: AnyObject) {
+        versionSelector.enabled = false;
+        downloadButton.title = "Downloading...";
+        downloadButton.enabled = false;
+        
         let listPath = NSBundle.mainBundle().pathForResource("BlenderVersions", ofType: "plist");
         let versionList = NSDictionary(contentsOfFile: listPath!);
         
         let downloadURL = "https://download.blender.org/release/" + (versionList!.valueForKey((versionSelector.selectedItem?.title)!) as! String);
-        let targetPath = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + (versionSelector.selectedItem?.title)! + ".zip";
-        let fileManager = NSFileManager.defaultManager();
         
-        do {
-            try fileManager.createDirectoryAtPath("/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions", withIntermediateDirectories: true, attributes: nil);
-            fileManager.createFileAtPath(targetPath, contents: NSData(contentsOfURL: NSURL(string: downloadURL)!), attributes: nil);
-        } catch {
-            print("An error occured while trying to download Blender. Please check your internet connection.");
-        }
+        if self.task != nil { return; }
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: downloadURL)!);
+        self.task = self.session.downloadTaskWithRequest(request);
+        task.resume();
     }
     
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        print("Downloaded \(totalBytesWritten) of \(totalBytesExpectedToWrite) bytes");
+        progressBar.doubleValue = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite);
+    }
     
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+        downloadButton.title = "Saving...";
+        progressBar.indeterminate = true
+        progressBar.startAnimation(self);
+        
+        let version = (versionSelector.selectedItem?.title)!;
+        let targetURL = NSURL(string: "file:///Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version + ".zip");
+        let fileManager = NSFileManager.defaultManager();
+        do {
+            try fileManager.createDirectoryAtPath("/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions", withIntermediateDirectories: true, attributes: nil);
+            try fileManager.moveItemAtURL(location, toURL: targetURL!);
+        } catch {
+            print("An error occured while attempting to save the downloaded Blender instance.");
+            progressBar.stopAnimation(self);
+            progressBar.indeterminate = false;
+            progressBar.doubleValue = 0.0;
+            downloadButton.title = "Download Blender";
+            downloadButton.enabled = true;
+            return;
+        }
+        
+        downloadButton.title = "Unpacking...";
+        let task = NSTask();
+        task.launchPath = "/usr/bin/unzip";
+        task.arguments = ["/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version + ".zip", "-d /Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version];
+        task.launch();
+        
+        progressBar.stopAnimation(self);
+        progressBar.indeterminate = false;
+        progressBar.doubleValue = 1.0;
+        downloadButton.title = "Available";
+    }
 }
 
