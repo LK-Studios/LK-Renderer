@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF44E4541C36E1D300E8461C /* BlenderVersions.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF44E4531C36E1D300E8461C /* BlenderVersions.plist */; };
+		EFC637A81C35A0D600A00BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637A71C35A0D600A00BED /* AppDelegate.swift */; };
+		EFC637AA1C35A0D600A00BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637A91C35A0D600A00BED /* ViewController.swift */; };
+		EFC637AC1C35A0D600A00BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFC637AB1C35A0D600A00BED /* Assets.xcassets */; };
+		EFC637AF1C35A0D600A00BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC637AD1C35A0D600A00BED /* Main.storyboard */; };
+		EFC637BA1C35A0D600A00BED /* LK_RendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637B91C35A0D600A00BED /* LK_RendererTests.swift */; };
+		EFC637C51C35A0D600A00BED /* LK_RendererUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637C41C35A0D600A00BED /* LK_RendererUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EFC637B61C35A0D600A00BED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFC6379C1C35A0D600A00BED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFC637A31C35A0D600A00BED;
+			remoteInfo = "LK-Renderer";
+		};
+		EFC637C11C35A0D600A00BED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFC6379C1C35A0D600A00BED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFC637A31C35A0D600A00BED;
+			remoteInfo = "LK-Renderer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF44E4531C36E1D300E8461C /* BlenderVersions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BlenderVersions.plist; sourceTree = "<group>"; };
+		EFC637A41C35A0D600A00BED /* LK-Renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LK-Renderer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC637A71C35A0D600A00BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFC637A91C35A0D600A00BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFC637AB1C35A0D600A00BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFC637AE1C35A0D600A00BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFC637B01C35A0D600A00BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFC637B51C35A0D600A00BED /* LK-RendererTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LK-RendererTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC637B91C35A0D600A00BED /* LK_RendererTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LK_RendererTests.swift; sourceTree = "<group>"; };
+		EFC637BB1C35A0D600A00BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFC637C01C35A0D600A00BED /* LK-RendererUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LK-RendererUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC637C41C35A0D600A00BED /* LK_RendererUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LK_RendererUITests.swift; sourceTree = "<group>"; };
+		EFC637C61C35A0D600A00BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFC637A11C35A0D600A00BED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFC637B21C35A0D600A00BED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFC637BD1C35A0D600A00BED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EFC6379B1C35A0D600A00BED = {
+			isa = PBXGroup;
+			children = (
+				EFC637A61C35A0D600A00BED /* LK-Renderer */,
+				EFC637B81C35A0D600A00BED /* LK-RendererTests */,
+				EFC637C31C35A0D600A00BED /* LK-RendererUITests */,
+				EFC637A51C35A0D600A00BED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EFC637A51C35A0D600A00BED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFC637A41C35A0D600A00BED /* LK-Renderer.app */,
+				EFC637B51C35A0D600A00BED /* LK-RendererTests.xctest */,
+				EFC637C01C35A0D600A00BED /* LK-RendererUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFC637A61C35A0D600A00BED /* LK-Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				EFC637A71C35A0D600A00BED /* AppDelegate.swift */,
+				EFC637A91C35A0D600A00BED /* ViewController.swift */,
+				EFC637AB1C35A0D600A00BED /* Assets.xcassets */,
+				EFC637AD1C35A0D600A00BED /* Main.storyboard */,
+				EFC637B01C35A0D600A00BED /* Info.plist */,
+				EF44E4531C36E1D300E8461C /* BlenderVersions.plist */,
+			);
+			path = "LK-Renderer";
+			sourceTree = "<group>";
+		};
+		EFC637B81C35A0D600A00BED /* LK-RendererTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFC637B91C35A0D600A00BED /* LK_RendererTests.swift */,
+				EFC637BB1C35A0D600A00BED /* Info.plist */,
+			);
+			path = "LK-RendererTests";
+			sourceTree = "<group>";
+		};
+		EFC637C31C35A0D600A00BED /* LK-RendererUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EFC637C41C35A0D600A00BED /* LK_RendererUITests.swift */,
+				EFC637C61C35A0D600A00BED /* Info.plist */,
+			);
+			path = "LK-RendererUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFC637A31C35A0D600A00BED /* LK-Renderer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFC637C91C35A0D600A00BED /* Build configuration list for PBXNativeTarget "LK-Renderer" */;
+			buildPhases = (
+				EFC637A01C35A0D600A00BED /* Sources */,
+				EFC637A11C35A0D600A00BED /* Frameworks */,
+				EFC637A21C35A0D600A00BED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LK-Renderer";
+			productName = "LK-Renderer";
+			productReference = EFC637A41C35A0D600A00BED /* LK-Renderer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFC637B41C35A0D600A00BED /* LK-RendererTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFC637CC1C35A0D600A00BED /* Build configuration list for PBXNativeTarget "LK-RendererTests" */;
+			buildPhases = (
+				EFC637B11C35A0D600A00BED /* Sources */,
+				EFC637B21C35A0D600A00BED /* Frameworks */,
+				EFC637B31C35A0D600A00BED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFC637B71C35A0D600A00BED /* PBXTargetDependency */,
+			);
+			name = "LK-RendererTests";
+			productName = "LK-RendererTests";
+			productReference = EFC637B51C35A0D600A00BED /* LK-RendererTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EFC637BF1C35A0D600A00BED /* LK-RendererUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFC637CF1C35A0D600A00BED /* Build configuration list for PBXNativeTarget "LK-RendererUITests" */;
+			buildPhases = (
+				EFC637BC1C35A0D600A00BED /* Sources */,
+				EFC637BD1C35A0D600A00BED /* Frameworks */,
+				EFC637BE1C35A0D600A00BED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFC637C21C35A0D600A00BED /* PBXTargetDependency */,
+			);
+			name = "LK-RendererUITests";
+			productName = "LK-RendererUITests";
+			productReference = EFC637C01C35A0D600A00BED /* LK-RendererUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFC6379C1C35A0D600A00BED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "LK-Studios";
+				TargetAttributes = {
+					EFC637A31C35A0D600A00BED = {
+						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					EFC637B41C35A0D600A00BED = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = EFC637A31C35A0D600A00BED;
+					};
+					EFC637BF1C35A0D600A00BED = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = EFC637A31C35A0D600A00BED;
+					};
+				};
+			};
+			buildConfigurationList = EFC6379F1C35A0D600A00BED /* Build configuration list for PBXProject "LK-Renderer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFC6379B1C35A0D600A00BED;
+			productRefGroup = EFC637A51C35A0D600A00BED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFC637A31C35A0D600A00BED /* LK-Renderer */,
+				EFC637B41C35A0D600A00BED /* LK-RendererTests */,
+				EFC637BF1C35A0D600A00BED /* LK-RendererUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFC637A21C35A0D600A00BED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFC637AC1C35A0D600A00BED /* Assets.xcassets in Resources */,
+				EFC637AF1C35A0D600A00BED /* Main.storyboard in Resources */,
+				EF44E4541C36E1D300E8461C /* BlenderVersions.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFC637B31C35A0D600A00BED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFC637BE1C35A0D600A00BED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFC637A01C35A0D600A00BED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFC637AA1C35A0D600A00BED /* ViewController.swift in Sources */,
+				EFC637A81C35A0D600A00BED /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFC637B11C35A0D600A00BED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFC637BA1C35A0D600A00BED /* LK_RendererTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFC637BC1C35A0D600A00BED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFC637C51C35A0D600A00BED /* LK_RendererUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFC637B71C35A0D600A00BED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFC637A31C35A0D600A00BED /* LK-Renderer */;
+			targetProxy = EFC637B61C35A0D600A00BED /* PBXContainerItemProxy */;
+		};
+		EFC637C21C35A0D600A00BED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFC637A31C35A0D600A00BED /* LK-Renderer */;
+			targetProxy = EFC637C11C35A0D600A00BED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EFC637AD1C35A0D600A00BED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFC637AE1C35A0D600A00BED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFC637C71C35A0D600A00BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EFC637C81C35A0D600A00BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EFC637CA1C35A0D600A00BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "LK-Renderer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lk-studios.lk-renderer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EFC637CB1C35A0D600A00BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "LK-Renderer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lk-studios.lk-renderer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EFC637CD1C35A0D600A00BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "LK-RendererTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lkstudios.LK-RendererTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LK-Renderer.app/Contents/MacOS/LK-Renderer";
+			};
+			name = Debug;
+		};
+		EFC637CE1C35A0D600A00BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "LK-RendererTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lkstudios.LK-RendererTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LK-Renderer.app/Contents/MacOS/LK-Renderer";
+			};
+			name = Release;
+		};
+		EFC637D01C35A0D600A00BED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "LK-RendererUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lkstudios.LK-RendererUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "LK-Renderer";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		EFC637D11C35A0D600A00BED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "LK-RendererUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lkstudios.LK-RendererUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "LK-Renderer";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFC6379F1C35A0D600A00BED /* Build configuration list for PBXProject "LK-Renderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFC637C71C35A0D600A00BED /* Debug */,
+				EFC637C81C35A0D600A00BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFC637C91C35A0D600A00BED /* Build configuration list for PBXNativeTarget "LK-Renderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFC637CA1C35A0D600A00BED /* Debug */,
+				EFC637CB1C35A0D600A00BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFC637CC1C35A0D600A00BED /* Build configuration list for PBXNativeTarget "LK-RendererTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFC637CD1C35A0D600A00BED /* Debug */,
+				EFC637CE1C35A0D600A00BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFC637CF1C35A0D600A00BED /* Build configuration list for PBXNativeTarget "LK-RendererUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFC637D01C35A0D600A00BED /* Debug */,
+				EFC637D11C35A0D600A00BED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFC6379C1C35A0D600A00BED /* Project object */;
+}
