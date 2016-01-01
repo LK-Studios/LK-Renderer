@@ -33,7 +33,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+        var listContents: NSString = ("" as NSString);
+        do {
+            let listPath = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/available.txt"
+            listContents = try NSString(contentsOfFile: listPath, encoding: NSUTF8StringEncoding);
+        } catch {
+            return;
+        }
+        let versionList = listContents.componentsSeparatedByString("\n") as [String];
+        if versionList.isEmpty {
+            return;
+        }
+        
+        for ver in versionList {
+            cleanupVersions.insert(ver);
+        }
+        
+        for version in cleanupVersions {
+            if version == "" {
+                continue;
+            }
+            
+            let path = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version;
+            let task = NSTask();
+            task.launchPath = "/bin/rm";
+            task.arguments = ["-r", path];
+            task.launch();
+        }
+        
+        let task = NSTask();
+        task.launchPath = "/bin/rm";
+        task.arguments = ["/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/available.txt"];
+        task.launch();
     }
     
 }

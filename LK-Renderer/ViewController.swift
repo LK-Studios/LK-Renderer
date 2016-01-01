@@ -59,7 +59,11 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         versionSelector.selectItemWithTitle("2.76b");
         
         let empty: NSString = ("" as NSString);
-        empty.writeToFile("/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/available.txt", atomically: false, encoding: NSUTF8StringEncoding);
+        do {
+            try empty.writeToFile("/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/available.txt", atomically: false, encoding: NSUTF8StringEncoding);
+        } catch {
+        
+        }
         
         // Check for availability of selected Blender version
         let version = (versionSelector.selectedItem?.title)!;
@@ -150,6 +154,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         task.arguments = ["/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version + ".zip", "-d", "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version];
         task.launch();
         addAvailableVersion(version);
+        task.waitUntilExit();
         handleVersionAvailability(2);
     }
     
