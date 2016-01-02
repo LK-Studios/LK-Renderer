@@ -62,8 +62,8 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         self.task = nil;
         
         // Set list of versions
-        // blenderVersions = ["2.76b", "2.76a", "2.76", "2.75", "2.74", "2,73", "2.72", "2.71", "2.70", "2.69", "2.68", "2.67", "2.66", "2.65", "2.64", "2.63", "2.62", "2.61", "2.60"];
-        blenderVersions = ["2.76b", "2.76a", "2.76"];
+        blenderVersions = ["2.76b", "2.76a", "2.76", "2.75a", "2.75", "2.74", "2.73a", "2,73", "2.72b", "2.72a", "2.72", "2.71", "2.70a", "2.70", "2.69", "2.68a", "2.68", "2.67b", "2.67a", "2.67", "2.66a", "2.66", "2.65a", "2.65", "2.64a", "2.64", "2.63a", "2.63", "2.62", "2.61", "2.60a", "2.60", "2.59", "2.58a", "2.58", "2.57b", "2.57a", "2.57", "2.56a Beta", "2.56 Beta", "2.55 Beta", "2.54 Beta", "2.53 Beta", "2.50 Alpha2", "2.50 Alpha1", "2.50 Alpha0", "2.49b", "2.49a"];
+        // blenderVersions = ["2.76b", "2.76a", "2.76", "2.75a", "2.75", "2.49b"];
         versionSelector.removeAllItems();
         versionSelector.addItemsWithTitles(blenderVersions);
         versionSelector.selectItemWithTitle("2.76b");
@@ -287,7 +287,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
-        if error != nil { return; }
+        if error == nil { return; }
         let alert = NSAlert();
         alert.alertStyle = NSAlertStyle.WarningAlertStyle;
         alert.messageText = "An error occured while attempting to download Blender.";
