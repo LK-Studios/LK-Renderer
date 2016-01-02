@@ -32,6 +32,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     @IBOutlet weak var radioAnimation: NSButton!
     @IBOutlet weak var firstFrameNumber: NSTextField!
     @IBOutlet weak var lastFrameNumber: NSTextField!
+    var firstFrameInt: Int = 0; var lastFrameInt: Int = 0;
     
     @IBOutlet weak var startRenderButton: NSButton!
     
@@ -44,6 +45,8 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     @IBOutlet weak var threadCountBox: NSTextField!
     
     @IBOutlet weak var imageViewer: NSImageView!
+    
+    @IBOutlet weak var statusBar: NSTextField!
     
     var versionAvailability = 0;
     
@@ -65,7 +68,6 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         
         // Set list of versions
         blenderVersions = ["2.76b", "2.76a", "2.76", "2.75a", "2.75", "2.74", "2.73a", "2.73", "2.72b", "2.72a", "2.72", "2.71", "2.70a", "2.70", "2.69", "2.68a", "2.68", "2.67b", "2.67a", "2.67", "2.66a", "2.66", "2.65a", "2.65", "2.64a", "2.64", "2.63a", "2.63", "2.62", "2.61", "2.60a", "2.60", "2.59", "2.58a", "2.58", "2.57b", "2.57a", "2.57", "2.56a-Beta", "2.56-Beta", "2.55-Beta", "2.54-Beta", "2.53-Beta", "2.50-Alpha2", "2.50-Alpha1", "2.50-Alpha0", "2.49b", "2.49a", "2.49", "2.48"];
-        // blenderVersions = ["2.76b", "2.76a", "2.76", "2.75a", "2.75", "2.49b"];
         versionSelector.removeAllItems();
         versionSelector.addItemsWithTitles(blenderVersions);
         versionSelector.selectItemWithTitle("2.76b");
@@ -192,9 +194,10 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
                 alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil);
                 return;
             }
-            let firstFrame = firstFrameNumber.stringValue;
-            let lastFrame = lastFrameNumber.stringValue;
-            launchArguments = ["-b", blendFile, "-E", engineString, "-o", outFolder + "/" + blendFileSimple + "_out###.png", "-s", firstFrame, "-e", lastFrame, "-t", threadCount, "-a"];
+            
+            let firstFrame = firstFrameNumber.stringValue.stringByReplacingOccurrencesOfString(".", withString: "");
+            let lastFrame = lastFrameNumber.stringValue.stringByReplacingOccurrencesOfString(".", withString: "");
+            launchArguments = ["-b", blendFile, "-E", engineString, "-o", outFolder + "/" + blendFileSimple + "_out", "-s", firstFrame, "-e", lastFrame, "-t", threadCount, "-a"];
         } else {
             if singleFrameNumber.stringValue == "" {
                 let alert = NSAlert();
@@ -203,8 +206,8 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
                 alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil);
                 return;
             }
-            let frame = singleFrameNumber.stringValue;
-            launchArguments = ["-b", blendFile, "-E", engineString, "-o", outFolder + "/" +  blendFileSimple + "_out###.png", "-f", frame, "-t", threadCount];
+            let frame = singleFrameNumber.stringValue.stringByReplacingOccurrencesOfString(".", withString: "");
+            launchArguments = ["-b", blendFile, "-E", engineString, "-o", outFolder + "/" + blendFileSimple + "_out", "-f", frame, "-t", threadCount];
         }
         
         let renderTask = NSTask();
@@ -213,7 +216,34 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         renderTask.launch();
         
         if !animation {
+            statusBar.stringValue = "Rendering frame " + singleFrameNumber.stringValue + " of file " + blendFileSimple
+            var imageBaseName = "";
+            let frameInt = Int(singleFrameNumber.stringValue);
+            if frameInt < 10 {
+                imageBaseName = blendFileSimple + "_out000" + singleFrameNumber.stringValue;
+            } else if frameInt < 100 {
+                imageBaseName = blendFileSimple + "_out00" + singleFrameNumber.stringValue;
+            } else if frameInt < 1000 {
+                imageBaseName = blendFileSimple + "_out0" + singleFrameNumber.stringValue;
+            } else {
+                imageBaseName = blendFileSimple + "_out" + singleFrameNumber.stringValue;
+            }
             renderTask.waitUntilExit();
+            let fileManager = NSFileManager.defaultManager();
+            let enumerator = fileManager.enumeratorAtPath(outFolder);
+            var imageFileName = "";
+            while let element = enumerator?.nextObject() as? String {
+                if element.containsString(imageBaseName) {
+                    imageFileName = element;
+                }
+            }
+            let image = outFolder + "/" + imageFileName;
+            imageViewer.image = NSImage(byReferencingFile: image);
+            let imageArray = image.componentsSeparatedByString("/");
+            statusBar.stringValue = "Ready. Displaying " + imageArray[imageArray.count - 1]
+        } else {
+            statusBar.stringValue = "Rendering animation of frames " + firstFrameNumber.stringValue + " to " +  lastFrameNumber.stringValue + " for file " + blendFileSimple;
+            
         }
     }
     
@@ -399,7 +429,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         switch version {
         case "2.76a", "2.76":
             return "";
-        case "2.75a", "2.75", "2.74", "2.73a", "2.73", "2.72b", "2.72", "2.71a", "2.71", "2.70a", "2.70", "2.69", "2.68a", "2.68", "2.67b", "2.67a", "2.67", "2.66a", "2.66", "2.65a", "2.65", "2.64a", "2.64":
+        case "2.75a", "2.75", "2.74", "2.73a", "2.73", "2.72b", "2.72a", "2.72", "2.71a", "2.71", "2.70a", "2.70", "2.69", "2.68a", "2.68", "2.67b", "2.67a", "2.67", "2.66a", "2.66", "2.65a", "2.65", "2.64a", "2.64":
             return "Blender/";
         case "2.60a", "2.60":
             return "Blender/";

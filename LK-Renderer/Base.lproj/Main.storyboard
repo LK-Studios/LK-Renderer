@@ -876,6 +876,7 @@
                         <outlet property="renderEngine" destination="INR-7q-3Mo" id="O3f-oc-bS9"/>
                         <outlet property="singleFrameNumber" destination="E7F-cC-73l" id="7yw-OP-942"/>
                         <outlet property="startRenderButton" destination="6IM-36-x7y" id="FXR-M6-w75"/>
+                        <outlet property="statusBar" destination="Dhn-0t-BGU" id="ebL-ww-5Mn"/>
                         <outlet property="threadCountBox" destination="hoV-Lf-lmu" id="q6E-fW-LZH"/>
                         <outlet property="versionSelector" destination="N7A-6F-bvQ" id="Oz7-rN-6Hz"/>
                     </connections>
