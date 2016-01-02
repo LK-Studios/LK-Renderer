@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EF44E4541C36E1D300E8461C /* BlenderVersions.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF44E4531C36E1D300E8461C /* BlenderVersions.plist */; };
+		EF60B6961C380DF7003CE073 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EF60B6951C380DF7003CE073 /* LICENSE */; };
+		EF60B6981C380E9B003CE073 /* NOTICE in Resources */ = {isa = PBXBuildFile; fileRef = EF60B6971C380E9B003CE073 /* NOTICE */; };
 		EF6631C31C373A74002E29DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6631C21C373A74002E29DB /* Assets.xcassets */; };
 		EFC637A81C35A0D600A00BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637A71C35A0D600A00BED /* AppDelegate.swift */; };
 		EFC637AA1C35A0D600A00BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637A91C35A0D600A00BED /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		EF44E4531C36E1D300E8461C /* BlenderVersions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BlenderVersions.plist; sourceTree = "<group>"; };
+		EF60B6951C380DF7003CE073 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = "LK-Renderer/LICENSE"; sourceTree = "<group>"; };
+		EF60B6971C380E9B003CE073 /* NOTICE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
 		EF6631C21C373A74002E29DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFC637A41C35A0D600A00BED /* LK-Renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LK-Renderer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC637A71C35A0D600A00BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		EFC6379B1C35A0D600A00BED = {
 			isa = PBXGroup;
 			children = (
+				EF60B6971C380E9B003CE073 /* NOTICE */,
+				EF60B6951C380DF7003CE073 /* LICENSE */,
 				EFC637A61C35A0D600A00BED /* LK-Renderer */,
 				EFC637B81C35A0D600A00BED /* LK-RendererTests */,
 				EFC637C31C35A0D600A00BED /* LK-RendererUITests */,
@@ -234,8 +240,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF60B6981C380E9B003CE073 /* NOTICE in Resources */,
 				EFC637AF1C35A0D600A00BED /* Main.storyboard in Resources */,
 				EF6631C31C373A74002E29DB /* Assets.xcassets in Resources */,
+				EF60B6961C380DF7003CE073 /* LICENSE in Resources */,
 				EF44E4541C36E1D300E8461C /* BlenderVersions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
