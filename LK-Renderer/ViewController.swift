@@ -23,7 +23,8 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     
     @IBOutlet weak var chooseBlendButton: NSButton!
     @IBOutlet weak var blendFileLabel: NSTextField!
-    var blendFile = "";
+    var blendFile = "none";
+    var blendFileSimple = "none";
     
     @IBOutlet weak var radioSingleFrame: NSButton!
     @IBOutlet weak var singleFrameNumber: NSTextField!
@@ -33,6 +34,14 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     @IBOutlet weak var lastFrameNumber: NSTextField!
     
     @IBOutlet weak var startRenderButton: NSButton!
+    
+    @IBOutlet weak var renderEngine: NSPopUpButton!
+    
+    @IBOutlet weak var chooseOutputFolderButton: NSButton!
+    @IBOutlet weak var outputFolderLabel: NSTextField!
+    var outFolder: String = "none";
+    
+    @IBOutlet weak var threadCountBox: NSTextField!
     
     var versionAvailability = 0;
     
@@ -58,6 +67,10 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         versionSelector.removeAllItems();
         versionSelector.addItemsWithTitles(blenderVersions);
         versionSelector.selectItemWithTitle("2.76b");
+        
+        renderEngine.removeAllItems();
+        renderEngine.addItemsWithTitles(["Blender Internal", "Cycles"]);
+        renderEngine.selectItemWithTitle("Blender Internal");
         
         let empty: NSString = ("" as NSString);
         do {
@@ -124,17 +137,103 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         openPanel.message = "Please select the .blend file you wish to render";
         openPanel.showsHiddenFiles = false;
         openPanel.allowsMultipleSelection = false;
+        openPanel.allowedFileTypes = ["blend"]
         openPanel.runModal();
         
         let path = openPanel.URL?.path;
         if path != nil {
             blendFile = path!;
             let pathArray: [String] = blendFile.componentsSeparatedByString("/");
-            blendFileLabel.stringValue = pathArray[pathArray.count - 1]
+            blendFileLabel.stringValue = pathArray[pathArray.count - 1];
+            blendFileSimple = pathArray[pathArray.count - 1];
+            print("Chosen Blender file: " + blendFile);
         }
     }
     
     @IBAction func renderButtonClicked(sender: AnyObject) {
+        let version = (versionSelector.selectedItem?.title)!
+        let versionList = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("BlenderVersions", ofType: "plist")!);
+        let verString = versionList!.valueForKey(version) as! String;
+        let verFolder = (verString.componentsSeparatedByString("/")[1]).componentsSeparatedByString(".z")[0];
+        let blenderPath = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version + "/" + verFolder + "/Blender.app/Contents/MacOS/blender";
+        
+        var engineString: String = "";
+        if (renderEngine.selectedItem?.title)! == "Blender Internal" {
+            engineString = "BLENDER_RENDER";
+        } else if (renderEngine.selectedItem?.title)! == "Cycles" {
+            engineString = "CYCLES";
+        }
+        
+        if outFolder == "none" {
+            outputFolderLabel.stringValue = "Please select an output folder!";
+            return;
+        }
+        
+        if blendFile == "none" {
+            blendFileLabel.stringValue = "Please select a .blend file!";
+            return;
+        }
+        
+        let threadCount = threadCountBox.stringValue;
+        if threadCount == "" {
+            let alert = NSAlert();
+            alert.alertStyle = NSAlertStyle.CriticalAlertStyle;
+            alert.messageText = "Please specify the number of threads to be used!";
+            alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil);
+            return;
+        }
+        
+        var launchArguments: [String] = [];
+        if animation {
+            if firstFrameNumber.stringValue == "" || lastFrameNumber.stringValue == "" {
+                let alert = NSAlert();
+                alert.alertStyle = NSAlertStyle.CriticalAlertStyle;
+                alert.messageText = "Please specify the first and last frame of the animation!";
+                alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil);
+                return;
+            }
+            let firstFrame = firstFrameNumber.stringValue;
+            let lastFrame = lastFrameNumber.stringValue;
+            launchArguments = ["-b", blendFile, "-E", engineString, "-o", outFolder + "/" + blendFileSimple + "_out###.png", "-s", firstFrame, "-e", lastFrame, "-t", threadCount, "-a"];
+        } else {
+            if singleFrameNumber.stringValue == "" {
+                let alert = NSAlert();
+                alert.alertStyle = NSAlertStyle.CriticalAlertStyle;
+                alert.messageText = "Please specify the frame you wish to render!";
+                alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil);
+                return;
+            }
+            let frame = singleFrameNumber.stringValue;
+            launchArguments = ["-b", blendFile, "-E", engineString, "-o", outFolder + "/" +  blendFileSimple + "_out###.png", "-f", frame, "-t", threadCount];
+        }
+        
+        let renderTask = NSTask();
+        renderTask.launchPath = blenderPath;
+        renderTask.arguments = launchArguments;
+        renderTask.launch();
+        
+        if !animation {
+            renderTask.waitUntilExit();
+        }
+    }
+    
+    @IBAction func chooseOutputFolderClicked(sender: AnyObject) {
+        let openPanel = NSOpenPanel();
+        openPanel.title = "Please select output folder";
+        openPanel.message = "Please select the folder in which the rendered image(s) should be stored";
+        openPanel.resolvesAliases = true;
+        openPanel.showsHiddenFiles = false;
+        openPanel.allowsMultipleSelection = false;
+        openPanel.canChooseDirectories = true;
+        openPanel.canChooseFiles = false;
+        openPanel.runModal();
+        
+        if let path = openPanel.URL?.path {
+            outFolder = path;
+            let pathArray: [String] = outFolder.componentsSeparatedByString("/");
+            outputFolderLabel.stringValue = pathArray[pathArray.count - 1];
+            print("Chosen output directory: " + outFolder);
+        }
     }
     
     @IBAction func singleFrameChosen(sender: AnyObject) {
@@ -269,6 +368,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
             progressBar.indeterminate = false;
             progressBar.doubleValue = 1.0;
             versionSelector.enabled = true;
+            startRenderButton.enabled = true;
             break;
         case 1:
             downloadButton.enabled = true;
@@ -277,6 +377,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
             progressBar.indeterminate = false;
             progressBar.doubleValue = 1.0;
             versionSelector.enabled = true;
+            startRenderButton.enabled = false;
             break;
         case 0:
             downloadButton.enabled = true;
@@ -285,6 +386,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
             progressBar.indeterminate = false;
             progressBar.doubleValue = 0.0;
             versionSelector.enabled = true;
+            startRenderButton.enabled = false;
             break;
         default:
             break;
