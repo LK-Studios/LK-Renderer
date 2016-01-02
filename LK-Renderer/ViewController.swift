@@ -27,10 +27,12 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     
     @IBOutlet weak var radioSingleFrame: NSButton!
     @IBOutlet weak var singleFrameNumber: NSTextField!
-    
+    var animation = false;
     @IBOutlet weak var radioAnimation: NSButton!
     @IBOutlet weak var firstFrameNumber: NSTextField!
     @IBOutlet weak var lastFrameNumber: NSTextField!
+    
+    @IBOutlet weak var startRenderButton: NSButton!
     
     var versionAvailability = 0;
     
@@ -52,7 +54,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         
         // Set list of versions
         // blenderVersions = ["2.76b", "2.76a", "2.76", "2.75", "2.74", "2,73", "2.72", "2.71", "2.70", "2.69", "2.68", "2.67", "2.66", "2.65", "2.64", "2.63", "2.62", "2.61", "2.60"];
-        blenderVersions = ["2.76b"];
+        blenderVersions = ["2.76b", "2.76a", "2.76"];
         versionSelector.removeAllItems();
         versionSelector.addItemsWithTitles(blenderVersions);
         versionSelector.selectItemWithTitle("2.76b");
@@ -132,9 +134,22 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         }
     }
     
-    @IBAction func singleFrameClicked(sender: AnyObject) {
+    @IBAction func renderButtonClicked(sender: AnyObject) {
+    }
+    
+    @IBAction func singleFrameChosen(sender: AnyObject) {
+        radioAnimation.state = NSOffState;
+        firstFrameNumber.enabled = false;
+        lastFrameNumber.enabled = false;
+        animation = false;
+        singleFrameNumber.enabled = true;
     }
     @IBAction func animationChosen(sender: AnyObject) {
+        radioSingleFrame.state = NSOffState;
+        singleFrameNumber.enabled = false;
+        animation = true;
+        firstFrameNumber.enabled = true;
+        lastFrameNumber.enabled = true;
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
@@ -173,14 +188,11 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+        if error != nil { return; }
         let alert = NSAlert();
         alert.alertStyle = NSAlertStyle.WarningAlertStyle;
         alert.messageText = "An error occured while attempting to download Blender.";
-        if error != nil {
-            alert.informativeText = error!.localizedDescription;
-        } else {
-            alert.informativeText = "Please check your internet connection."
-        }
+        alert.informativeText = error!.localizedDescription;
         alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil);
         handleVersionAvailability(0);
     }

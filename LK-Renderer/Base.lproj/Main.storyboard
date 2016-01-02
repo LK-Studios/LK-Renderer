@@ -733,7 +733,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="singleFrameClicked:" target="XfG-lQ-9wD" id="mci-vh-Bji"/>
+                                    <action selector="singleFrameChosen:" target="XfG-lQ-9wD" id="UFl-wW-QiT"/>
                                 </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7C-f9-elL">
@@ -743,7 +743,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="animationChosen:" target="XfG-lQ-9wD" id="eFv-Ws-Bfa"/>
+                                    <action selector="animationChosen:" target="XfG-lQ-9wD" id="9av-08-sZd"/>
                                 </connections>
                             </button>
                             <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="N03-bW-iSe">
@@ -793,10 +793,13 @@
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6IM-36-x7y">
                                 <rect key="frame" x="14" y="44" width="157" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zY7-Jt-53S">
+                                <buttonCell key="cell" type="push" title="Start render" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zY7-Jt-53S">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="renderButtonClicked:" target="XfG-lQ-9wD" id="zLt-zF-8YB"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7F-cC-73l">
                                 <rect key="frame" x="69" y="183" width="96" height="22"/>
@@ -816,9 +819,10 @@
                         <outlet property="firstFrameNumber" destination="3gq-Ny-2FU" id="Bvi-ym-Wwb"/>
                         <outlet property="lastFrameNumber" destination="0uS-pf-AeC" id="zCY-hK-Umn"/>
                         <outlet property="progressBar" destination="N03-bW-iSe" id="75M-Lk-fsD"/>
-                        <outlet property="radioAnimation" destination="T7C-f9-elL" id="TND-6r-X42"/>
-                        <outlet property="radioSingleFrame" destination="Jp3-gX-fz2" id="K6S-Cp-2ei"/>
+                        <outlet property="radioAnimation" destination="T7C-f9-elL" id="0wI-Oc-sPX"/>
+                        <outlet property="radioSingleFrame" destination="Jp3-gX-fz2" id="8XN-ex-55X"/>
                         <outlet property="singleFrameNumber" destination="E7F-cC-73l" id="7yw-OP-942"/>
+                        <outlet property="startRenderButton" destination="6IM-36-x7y" id="FXR-M6-w75"/>
                         <outlet property="versionSelector" destination="N7A-6F-bvQ" id="Oz7-rN-6Hz"/>
                     </connections>
                 </viewController>

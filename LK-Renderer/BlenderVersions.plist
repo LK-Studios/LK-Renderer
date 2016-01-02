@@ -4,5 +4,9 @@
 <dict>
 	<key>2.76b</key>
 	<string>Blender2.76/blender-2.76b-OSX_10.6-x86_64.zip</string>
+	<key>2.76a</key>
+	<string>Blender2.76/blender-2.76a-OSX_10.6-x86_64.zip</string>
+	<key>2.76</key>
+	<string>Blender2.76/blender-2.76-OSX_10.6-x86_64.zip</string>
 </dict>
 </plist>
