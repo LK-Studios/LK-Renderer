@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EF44E4541C36E1D300E8461C /* BlenderVersions.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF44E4531C36E1D300E8461C /* BlenderVersions.plist */; };
+		EF6631C31C373A74002E29DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6631C21C373A74002E29DB /* Assets.xcassets */; };
 		EFC637A81C35A0D600A00BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637A71C35A0D600A00BED /* AppDelegate.swift */; };
 		EFC637AA1C35A0D600A00BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637A91C35A0D600A00BED /* ViewController.swift */; };
-		EFC637AC1C35A0D600A00BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFC637AB1C35A0D600A00BED /* Assets.xcassets */; };
 		EFC637AF1C35A0D600A00BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFC637AD1C35A0D600A00BED /* Main.storyboard */; };
 		EFC637BA1C35A0D600A00BED /* LK_RendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637B91C35A0D600A00BED /* LK_RendererTests.swift */; };
 		EFC637C51C35A0D600A00BED /* LK_RendererUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC637C41C35A0D600A00BED /* LK_RendererUITests.swift */; };
@@ -35,10 +35,10 @@
 
 /* Begin PBXFileReference section */
 		EF44E4531C36E1D300E8461C /* BlenderVersions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BlenderVersions.plist; sourceTree = "<group>"; };
+		EF6631C21C373A74002E29DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFC637A41C35A0D600A00BED /* LK-Renderer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LK-Renderer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC637A71C35A0D600A00BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFC637A91C35A0D600A00BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EFC637AB1C35A0D600A00BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFC637AE1C35A0D600A00BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFC637B01C35A0D600A00BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFC637B51C35A0D600A00BED /* LK-RendererTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LK-RendererTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,9 +97,9 @@
 		EFC637A61C35A0D600A00BED /* LK-Renderer */ = {
 			isa = PBXGroup;
 			children = (
+				EF6631C21C373A74002E29DB /* Assets.xcassets */,
 				EFC637A71C35A0D600A00BED /* AppDelegate.swift */,
 				EFC637A91C35A0D600A00BED /* ViewController.swift */,
-				EFC637AB1C35A0D600A00BED /* Assets.xcassets */,
 				EFC637AD1C35A0D600A00BED /* Main.storyboard */,
 				EFC637B01C35A0D600A00BED /* Info.plist */,
 				EF44E4531C36E1D300E8461C /* BlenderVersions.plist */,
@@ -234,8 +234,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFC637AC1C35A0D600A00BED /* Assets.xcassets in Resources */,
 				EFC637AF1C35A0D600A00BED /* Main.storyboard in Resources */,
+				EF6631C31C373A74002E29DB /* Assets.xcassets in Resources */,
 				EF44E4541C36E1D300E8461C /* BlenderVersions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,6 +33,17 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     
     @IBOutlet weak var progressBar: NSProgressIndicator!
     
+    @IBOutlet weak var chooseBlendButton: NSButton!
+    @IBOutlet weak var blendFileLabel: NSTextField!
+    var blendFile = "";
+    
+    @IBOutlet weak var radioSingleFrame: NSButton!
+    @IBOutlet weak var singleFrameNumber: NSTextField!
+    
+    @IBOutlet weak var radioAnimation: NSButton!
+    @IBOutlet weak var firstFrameNumber: NSTextField!
+    @IBOutlet weak var lastFrameNumber: NSTextField!
+    
     var versionAvailability = 0;
     
     var task: NSURLSessionTask!
@@ -94,6 +105,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
             progressBar.startAnimation(self);
             unzipBlender((versionSelector.selectedItem?.title)!);
         case 0:
+            print("Preparing to download Blender v" + (versionSelector.selectedItem?.title)!);
             versionSelector.enabled = false;
             downloadButton.title = "Downloading...";
             downloadButton.enabled = false;
@@ -103,14 +115,38 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
             
             let downloadURL = "https://download.blender.org/release/" + (versionList!.valueForKey((versionSelector.selectedItem?.title)!) as! String);
             
-            if self.task != nil { return; }
+            if self.task != nil { self.task.suspend(); self.task = nil; }
             
             let request = NSMutableURLRequest(URL: NSURL(string: downloadURL)!);
             self.task = self.session.downloadTaskWithRequest(request);
+            print("Initiiating download...");
             task.resume();
         default:
             break;
         }
+    }
+    
+    @IBAction func chooseBlendClicked(sender: AnyObject) {
+        let openPanel = NSOpenPanel();
+        openPanel.title = "Please select your .blend file";
+        openPanel.canChooseDirectories = false;
+        openPanel.resolvesAliases = true;
+        openPanel.message = "Please select the .blend file you wish to render";
+        openPanel.showsHiddenFiles = false;
+        openPanel.allowsMultipleSelection = false;
+        openPanel.runModal();
+        
+        let path = openPanel.URL?.path;
+        if path != nil {
+            blendFile = path!;
+            let pathArray: [String] = blendFile.componentsSeparatedByString("/");
+            blendFileLabel.stringValue = pathArray[pathArray.count - 1]
+        }
+    }
+    
+    @IBAction func singleFrameClicked(sender: AnyObject) {
+    }
+    @IBAction func animationChosen(sender: AnyObject) {
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
@@ -146,6 +182,19 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         progressBar.indeterminate = false;
         progressBar.doubleValue = 1.0;
         downloadButton.title = "Available";
+    }
+    
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+        let alert = NSAlert();
+        alert.alertStyle = NSAlertStyle.WarningAlertStyle;
+        alert.messageText = "An error occured while attempting to download Blender.";
+        if error != nil {
+            alert.informativeText = error!.localizedDescription;
+        } else {
+            alert.informativeText = "Please check your internet connection."
+        }
+        alert.beginSheetModalForWindow(self.view.window!, completionHandler: nil);
+        handleVersionAvailability(0);
     }
     
     func unzipBlender(version: String) {
@@ -228,6 +277,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
             progressBar.indeterminate = false;
             progressBar.doubleValue = 1.0;
             versionSelector.enabled = true;
+            break;
         case 0:
             downloadButton.enabled = true;
             downloadButton.title = "Download";
@@ -235,9 +285,12 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
             progressBar.indeterminate = false;
             progressBar.doubleValue = 0.0;
             versionSelector.enabled = true;
+            break;
         default:
             break;
         }
+        
+        versionAvailability = availabilty;
     }
 }
 

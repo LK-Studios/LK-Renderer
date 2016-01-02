@@ -670,11 +670,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="LK_Renderer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="683" height="433"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7A-6F-bvQ">
-                                <rect key="frame" x="18" y="226" width="150" height="26"/>
+                                <rect key="frame" x="18" y="377" width="150" height="26"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="FKv-QX-HNc">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -691,7 +691,7 @@
                                 </connections>
                             </popUpButton>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-Lx-LaD">
-                                <rect key="frame" x="14" y="197" width="157" height="32"/>
+                                <rect key="frame" x="14" y="348" width="157" height="32"/>
                                 <buttonCell key="cell" type="push" title="Download Blender" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VHl-zs-nDh">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -700,20 +700,131 @@
                                     <action selector="downloadButtonClicked:" target="XfG-lQ-9wD" id="gs1-6X-Oyu"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9UD-r7-8yz">
+                                <rect key="frame" x="18" y="401" width="149" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select Blender version:" placeholderString="" id="7CK-iC-1jY">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Esc-n3-mjM">
+                                <rect key="frame" x="14" y="296" width="157" height="32"/>
+                                <buttonCell key="cell" type="push" title="Choose .blend file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o7i-vd-efz">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="chooseBlendClicked:" target="XfG-lQ-9wD" id="1Of-Oc-Jur"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G6W-a0-rAi">
+                                <rect key="frame" x="18" y="241" width="149" height="54"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="tib-OC-2zP">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jp3-gX-fz2">
+                                <rect key="frame" x="19" y="210" width="99" height="18"/>
+                                <buttonCell key="cell" type="radio" title="Single frame" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="blI-Qg-b3P">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="singleFrameClicked:" target="XfG-lQ-9wD" id="mci-vh-Bji"/>
+                                </connections>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7C-f9-elL">
+                                <rect key="frame" x="19" y="140" width="83" height="18"/>
+                                <buttonCell key="cell" type="radio" title="Animation" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="MTr-fG-A0o">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="animationChosen:" target="XfG-lQ-9wD" id="eFv-Ws-Bfa"/>
+                                </connections>
+                            </button>
                             <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="N03-bW-iSe">
-                                <rect key="frame" x="20" y="185" width="145" height="20"/>
+                                <rect key="frame" x="20" y="336" width="145" height="20"/>
                             </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdH-18-OYV">
+                                <rect key="frame" x="18" y="186" width="46" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Frame:" id="WqD-Wk-1Gz">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZd-Gb-LDc">
+                                <rect key="frame" x="18" y="116" width="74" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="First frame:" id="qJ8-3D-egO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7G6-nC-suR">
+                                <rect key="frame" x="18" y="91" width="73" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Last frame:" id="Gyl-RB-Pmt">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3gq-Ny-2FU">
+                                <rect key="frame" x="98" y="113" width="67" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ARj-8l-JND">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="boX-vB-rqE"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0uS-pf-AeC">
+                                <rect key="frame" x="98" y="88" width="67" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="SAe-iU-ZoV">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="g2a-QS-J9B"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6IM-36-x7y">
+                                <rect key="frame" x="14" y="44" width="157" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zY7-Jt-53S">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7F-cC-73l">
+                                <rect key="frame" x="69" y="183" width="96" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="MNf-ro-d9c">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="2y1-d1-tuq"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="blendFileLabel" destination="G6W-a0-rAi" id="P64-8L-0kY"/>
+                        <outlet property="chooseBlendButton" destination="Esc-n3-mjM" id="H39-te-gZy"/>
                         <outlet property="downloadButton" destination="hSW-Lx-LaD" id="gDo-xE-mJ0"/>
+                        <outlet property="firstFrameNumber" destination="3gq-Ny-2FU" id="Bvi-ym-Wwb"/>
+                        <outlet property="lastFrameNumber" destination="0uS-pf-AeC" id="zCY-hK-Umn"/>
                         <outlet property="progressBar" destination="N03-bW-iSe" id="75M-Lk-fsD"/>
+                        <outlet property="radioAnimation" destination="T7C-f9-elL" id="TND-6r-X42"/>
+                        <outlet property="radioSingleFrame" destination="Jp3-gX-fz2" id="K6S-Cp-2ei"/>
+                        <outlet property="singleFrameNumber" destination="E7F-cC-73l" id="7yw-OP-942"/>
                         <outlet property="versionSelector" destination="N7A-6F-bvQ" id="Oz7-rN-6Hz"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="773"/>
+            <point key="canvasLocation" x="129.5" y="859.5"/>
         </scene>
     </scenes>
 </document>

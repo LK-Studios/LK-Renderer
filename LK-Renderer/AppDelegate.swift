@@ -57,13 +57,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let path = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version;
             let task = NSTask();
             task.launchPath = "/bin/rm";
-            task.arguments = ["-r", path];
+            task.arguments = ["-rv", path];
             task.launch();
         }
         
         let task = NSTask();
         task.launchPath = "/bin/rm";
-        task.arguments = ["/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/available.txt"];
+        task.arguments = ["-v", "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/available.txt"];
         task.launch();
     }
     
