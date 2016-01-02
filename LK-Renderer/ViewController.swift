@@ -43,6 +43,8 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     
     @IBOutlet weak var threadCountBox: NSTextField!
     
+    @IBOutlet weak var imageViewer: NSImageView!
+    
     var versionAvailability = 0;
     
     var task: NSURLSessionTask!
@@ -62,7 +64,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         self.task = nil;
         
         // Set list of versions
-        blenderVersions = ["2.76b", "2.76a", "2.76", "2.75a", "2.75", "2.74", "2.73a", "2,73", "2.72b", "2.72a", "2.72", "2.71", "2.70a", "2.70", "2.69", "2.68a", "2.68", "2.67b", "2.67a", "2.67", "2.66a", "2.66", "2.65a", "2.65", "2.64a", "2.64", "2.63a", "2.63", "2.62", "2.61", "2.60a", "2.60", "2.59", "2.58a", "2.58", "2.57b", "2.57a", "2.57", "2.56a Beta", "2.56 Beta", "2.55 Beta", "2.54 Beta", "2.53 Beta", "2.50 Alpha2", "2.50 Alpha1", "2.50 Alpha0", "2.49b", "2.49a"];
+        blenderVersions = ["2.76b", "2.76a", "2.76", "2.75a", "2.75", "2.74", "2.73a", "2.73", "2.72b", "2.72a", "2.72", "2.71", "2.70a", "2.70", "2.69", "2.68a", "2.68", "2.67b", "2.67a", "2.67", "2.66a", "2.66", "2.65a", "2.65", "2.64a", "2.64", "2.63a", "2.63", "2.62", "2.61", "2.60a", "2.60", "2.59", "2.58a", "2.58", "2.57b", "2.57a", "2.57", "2.56a-Beta", "2.56-Beta", "2.55-Beta", "2.54-Beta", "2.53-Beta", "2.50-Alpha2", "2.50-Alpha1", "2.50-Alpha0", "2.49b", "2.49a", "2.49", "2.48"];
         // blenderVersions = ["2.76b", "2.76a", "2.76", "2.75a", "2.75", "2.49b"];
         versionSelector.removeAllItems();
         versionSelector.addItemsWithTitles(blenderVersions);
@@ -152,10 +154,8 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     
     @IBAction func renderButtonClicked(sender: AnyObject) {
         let version = (versionSelector.selectedItem?.title)!
-        let versionList = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("BlenderVersions", ofType: "plist")!);
-        let verString = versionList!.valueForKey(version) as! String;
-        let verFolder = (verString.componentsSeparatedByString("/")[1]).componentsSeparatedByString(".z")[0];
-        let blenderPath = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version + "/" + verFolder + "/Blender.app/Contents/MacOS/blender";
+        let verFolder = getFolderName(version);
+        let blenderPath = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version + "/" + verFolder + "Blender.app/Contents/MacOS/blender";
         
         var engineString: String = "";
         if (renderEngine.selectedItem?.title)! == "Blender Internal" {
@@ -299,7 +299,7 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
     func unzipBlender(version: String) {
         let task = NSTask();
         task.launchPath = "/usr/bin/unzip";
-        task.arguments = ["/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version + ".zip", "-d", "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version];
+        task.arguments = ["-o", "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version + ".zip", "-d", "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version];
         task.launch();
         addAvailableVersion(version);
         task.waitUntilExit();
@@ -393,6 +393,29 @@ class ViewController: NSViewController, NSURLSessionDownloadDelegate {
         }
         
         versionAvailability = availabilty;
+    }
+    
+    func getFolderName (version: String) -> String {
+        switch version {
+        case "2.76a", "2.76":
+            return "";
+        case "2.75a", "2.75", "2.74", "2.73a", "2.73", "2.72b", "2.72", "2.71a", "2.71", "2.70a", "2.70", "2.69", "2.68a", "2.68", "2.67b", "2.67a", "2.67", "2.66a", "2.66", "2.65a", "2.65", "2.64a", "2.64":
+            return "Blender/";
+        case "2.60a", "2.60":
+            return "Blender/";
+        case "2.56a-Beta", "2.56-Beta", "2.55-Beta", "2.54-Beta", "2.53-Beta", "2.50-Alpha2", "2.50-Alpha1":
+            return "";
+        case "2.50-Alpha0":
+            return "Blender/";
+        case "2.49":
+            return "blender/";
+        case "2.48":
+            return "Blender/";
+        default:
+            let versionList = NSDictionary(contentsOfFile: NSBundle.mainBundle().pathForResource("BlenderVersions", ofType: "plist")!);
+            let verString = versionList!.valueForKey(version) as! String;
+            return (verString.componentsSeparatedByString("/")[1]).componentsSeparatedByString(".z")[0] + "/";
+        }
     }
 }
 

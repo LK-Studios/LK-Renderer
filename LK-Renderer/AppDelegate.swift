@@ -44,6 +44,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             let path = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version;
             let task = NSTask();
+            task.launchPath = "/bin/chmod";
+            task.arguments = ["-v", "-R", "u+w", path];
+            task.launch();
+            task.waitUntilExit();
+        }
+        
+        for version in cleanupVersions {
+            if version == "" {
+                continue;
+            }
+            
+            let path = "/Library/Caches/com.lk-studios.lk-renderer/BlenderVersions/" + version;
+            let task = NSTask();
             task.launchPath = "/bin/rm";
             task.arguments = ["-rv", path];
             task.launch();

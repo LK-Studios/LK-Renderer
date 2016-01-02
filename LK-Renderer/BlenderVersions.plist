@@ -78,21 +78,21 @@
 	<string>Blender2.57/blender-2.57a-OSX_10.5_x86_64.zip</string>
 	<key>2.57</key>
 	<string>Blender2.57/blender-2.57-OSX_10.5_x86_64.zip</string>
-	<key>2.56a Beta</key>
-	<string>Blender5.56abeta/blender-2.56a-beta-OSX-10.5-x86_64.zip</string>
-	<key>2.56 Beta</key>
+	<key>2.56a-Beta</key>
+	<string>Blender2.56abeta/blender-2.56a-beta-OSX-10.5-x86_64.zip</string>
+	<key>2.56-Beta</key>
 	<string>Blender2.56beta/blender-2.56-beta-OSX-10.5-x86_64.zip</string>
-	<key>2.55 Beta</key>
+	<key>2.55-Beta</key>
 	<string>Blender2.55beta/blender-2.55-beta-OSX-10.5-x86_64.zip</string>
-	<key>2.54 Beta</key>
+	<key>2.54-Beta</key>
 	<string>Blender2.54beta/blender-2.54-beta-OSX-10.5-x86_64.zip</string>
-	<key>2.53 Beta</key>
+	<key>2.53-Beta</key>
 	<string>Blender2.53beta/blender-2.53-beta-OSX-10.5-x86_64.zip</string>
-	<key>2.50 Alpha2</key>
+	<key>2.50-Alpha2</key>
 	<string>Blender2.50alpha/blender-2.5-alpha2-OSX-10.5-x86_64.zip</string>
-	<key>2.50 Alpha1</key>
+	<key>2.50-Alpha1</key>
 	<string>Blender2.50alpha/blender-2.5-alpha1-OSX-10.5-x86_64.zip</string>
-	<key>2.50 Alpha0</key>
+	<key>2.50-Alpha0</key>
 	<string>Blender2.50alpha/blender-2.5-alpha0-OSX-10.5-x86_64.zip</string>
 	<key>2.49b</key>
 	<string>Blender2.49b/blender-2.49b-OSX-10.5-py2.5-intel.zip</string>
@@ -100,8 +100,6 @@
 	<string>Blender2.49a/blender-2.49a-OSX-10.5-py2.5-intel.zip</string>
 	<key>2.49</key>
 	<string>Blender2.49/blender-2.49-OSX-10.4-py2.5-intel.zip</string>
-	<key>2.48a</key>
-	<string>Blender2.48a/blender-2.48a-OSX-10.4-py2.5-intel.zip</string>
 	<key>2.48</key>
 	<string>Blender2.48/blender-2.48-OSX-10.4-py2.5-intel.zip</string>
 </dict>
