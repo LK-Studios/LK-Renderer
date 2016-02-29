@@ -12,3 +12,7 @@ C:\Users\Lucas\Documents\LK-rener\FasterBlenderRenderer\FasterBlenderRenderer\bi
 C:\Users\Lucas\Documents\LK-rener\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.exe
 C:\Users\Lucas\Documents\LK-rener\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.xml
 C:\Users\Lucas\Documents\LK-rener\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.pdb
+C:\Users\ArdiM.DESKTOP-DN6AEMI\Documents\Source\Repos\LK-Renderer\FasterBlenderRenderer\FasterBlenderRenderer\bin\Debug\LK-Renderer.exe.config
+C:\Users\ArdiM.DESKTOP-DN6AEMI\Documents\Source\Repos\LK-Renderer\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.exe
+C:\Users\ArdiM.DESKTOP-DN6AEMI\Documents\Source\Repos\LK-Renderer\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.xml
+C:\Users\ArdiM.DESKTOP-DN6AEMI\Documents\Source\Repos\LK-Renderer\FasterBlenderRenderer\FasterBlenderRenderer\obj\Debug\LK-Renderer.pdb

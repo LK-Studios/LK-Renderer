@@ -20,8 +20,8 @@ Public Class Form1
             fs1.Close()
             My.Computer.FileSystem.WriteAllText(appdata & "\readme.txt",
             "This is the directory where everything for LK-Renderer is stored. " & vbCrLf &
-            "############   Please do not modify any Files here    ##############" &
-            "############   If you modify anything here programm may not functon anymore  #########", True)
+            "############                  Please do not modify any files here                 ############" &
+            "############   If you modify anything here the programm may not functon anymore   ############", True)
         End If
     End Sub
     Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
@@ -30,7 +30,7 @@ Public Class Form1
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        MsgBox("After you hit the Button a Command-line Window will show up and render your image." & vbCrLf & "This window will automaticly be closen after your render has finished!")
+        MsgBox("After you hit the button a command line window will open and render your image(s)." & vbCrLf & "This window will automatically close after your render has finished!")
         If ComboBox2.Text = "Cycles" Then
             If CheckBox2.Checked = True Then
                 Renderstring = "blender.exe -b " & TextBox1.Text & " -E CYCLES" & " -o " & TextBox2.Text & "\Renderdpic_###.png" & " -t " & TrackBar2.Value & " -f " & TrackBar1.Value
@@ -61,7 +61,7 @@ Public Class Form1
         End If
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        MsgBox("Select the .blend file you want To use!")
+        'MsgBox("Select the .blend file you want To use!")
         Dim openFileDialog1 As New OpenFileDialog()
         openFileDialog1.InitialDirectory = "c:\"
         openFileDialog1.Filter = ".blend Files (*.blend)|*.blend|All files (*.*)|*.*"
@@ -76,15 +76,15 @@ Public Class Form1
             Dim fileReader As String
             fileReader = My.Computer.FileSystem.ReadAllText(appdata & "\DownloadedVersions.txt")
             If InStr(fileReader, ComboBox1.SelectedItem) = 0 Then
-                MsgBox("Starting to download Blender " & ComboBox1.SelectedItem & vbCrLf & "Window might seem inactive but in the Background the Blender-Version is being downloaded!" & vbCrLf & "When an error occurs a messagebox will pop up when the Blender-Version was downloaded a messagebox will pop up!")
+                MsgBox("Starting to download Blender v" & ComboBox1.SelectedItem & vbCrLf & "The window might seem inactive but the selected Blender version is being downloaded!" & vbCrLf & "You will be notified when the download has finished or an error occurs.")
                 Downloadversion = "http://download.blender.org/release/Blender" & ComboBox1.SelectedItem & "/blender-" & ComboBox1.SelectedItem & "-windows64.zip"
                 download(Downloadversion, appdata & "\BV\" & ComboBox1.SelectedItem & ".zip")
             End If
             If InStr(fileReader, ComboBox1.SelectedItem) > 0 Then
-                MsgBox("The selected Blender-Version has already been Downloaded")
+                MsgBox("The selected Blender version has already been downloaded")
             End If
         Catch ex As Exception
-            MsgBox("Error " & ex.Message)
+            MsgBox("Error: " & ex.Message)
         End Try
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -163,9 +163,9 @@ Public Class Form1
             Next i
             myFileStream.Flush()
             myFileStream.Close()
-            MsgBox("Downloaded")
+            'MsgBox("Downloaded")
             Me.Text = "Finished downloading"
-            MsgBox("Starting to unpack now...")
+            MsgBox("Download successful, starting to unpack now...")
             Me.Text = "Unpacking..."
             Label1.Text = "Unpacking..."
             System.IO.Compression.ZipFile.ExtractToDirectory(appdata & "\BV\" & ComboBox1.SelectedItem & ".zip", appdata & "\BV_R\")
@@ -174,7 +174,7 @@ Public Class Form1
            ComboBox1.SelectedItem & vbCrLf, True)
             Me.Hide()
         Catch ex As Exception
-            MsgBox("Error:  " & ex.Message)
+            MsgBox("Error: " & ex.Message)
         End Try
     End Sub
 End Class
