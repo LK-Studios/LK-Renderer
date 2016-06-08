@@ -83,9 +83,9 @@ Partial Class Form1
         Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.Location = New System.Drawing.Point(15, 422)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(262, 20)
+        Me.CheckBox1.Size = New System.Drawing.Size(265, 20)
         Me.CheckBox1.TabIndex = 4
-        Me.CheckBox1.Text = "Animation(Image preview not available)"
+        Me.CheckBox1.Text = "Animation (Image preview not available)"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'CheckBox2
@@ -153,9 +153,9 @@ Partial Class Form1
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(12, 29)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(108, 16)
+        Me.Label3.Size = New System.Drawing.Size(107, 16)
         Me.Label3.TabIndex = 25
-        Me.Label3.Text = "Blender-Version "
+        Me.Label3.Text = "Blender Version "
         '
         'Button2
         '
@@ -210,9 +210,9 @@ Partial Class Form1
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(12, 590)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(72, 16)
+        Me.Label4.Size = New System.Drawing.Size(76, 16)
         Me.Label4.TabIndex = 31
-        Me.Label4.Text = "Outputpath"
+        Me.Label4.Text = "Output Path"
         '
         'TextBox2
         '
@@ -237,9 +237,9 @@ Partial Class Form1
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(12, 721)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(292, 16)
+        Me.Label5.Size = New System.Drawing.Size(295, 16)
         Me.Label5.TabIndex = 35
-        Me.Label5.Text = "# of Threads(leave at 0 for # of processor cores)"
+        Me.Label5.Text = "# of Threads (leave at 0 for # of processor cores)"
         '
         'ComboBox2
         '
@@ -282,9 +282,9 @@ Partial Class Form1
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(12, 445)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(77, 16)
+        Me.Label7.Size = New System.Drawing.Size(75, 16)
         Me.Label7.TabIndex = 40
-        Me.Label7.Text = "Start Frame"
+        Me.Label7.Text = "First Frame"
         '
         'Label8
         '
@@ -292,9 +292,9 @@ Partial Class Form1
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(12, 512)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(74, 16)
+        Me.Label8.Size = New System.Drawing.Size(75, 16)
         Me.Label8.TabIndex = 41
-        Me.Label8.Text = "End Frame"
+        Me.Label8.Text = "Last Frame"
         '
         'Timer1
         '
